@@ -16,7 +16,7 @@ function LoginPage() {
   async function submit(values: AuthValues) {
     setError(undefined)
     try {
-      const tokens = await apiRequest<Tokens>('/token', {
+      const tokens = await apiRequest<Tokens>('/api/auth/token/', {
         method: 'POST',
         body: JSON.stringify(values),
       })

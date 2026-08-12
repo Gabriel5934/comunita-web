@@ -7,6 +7,19 @@ npm install
 npm run dev
 ```
 
+Alternatively, run only the frontend in Docker:
+
+```sh
+docker compose up --build
+```
+
+The standalone Compose file expects the API on the host at
+`http://localhost:8000`. Override its proxy target when needed:
+
+```sh
+VITE_PROXY_TARGET=http://example-api:8000 docker compose up --build
+```
+
 The development server runs on `http://localhost:5174` and proxies API requests
 to `http://localhost:8000`. Set `VITE_API_URL` when the production API is hosted
 on a different origin.

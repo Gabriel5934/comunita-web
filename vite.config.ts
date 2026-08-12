@@ -1,16 +1,17 @@
-import { tanstackRouter } from '@tanstack/router-plugin/vite'
-import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 
 export default defineConfig({
-  plugins: [tanstackRouter({ target: 'react', autoCodeSplitting: true }), react()],
   server: {
-    port: 5174,
-    strictPort: true,
-    proxy: {
-      '/api': 'http://localhost:8000',
-      '/register': 'http://localhost:8000',
-      '/token': 'http://localhost:8000',
-    },
+    host: true, // binds to 0.0.0.0 inside the container
+    port: 5173,
   },
-})
+  plugins: [
+    tanstackRouter({
+      target: "react",
+      autoCodeSplitting: true,
+    }),
+    react(),
+  ],
+});

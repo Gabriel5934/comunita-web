@@ -16,8 +16,8 @@ function RegisterPage() {
   async function submit(values: AuthValues) {
     setError(undefined)
     try {
-      await apiRequest('/register', { method: 'POST', body: JSON.stringify(values) })
-      const tokens = await apiRequest<Tokens>('/token', {
+      await apiRequest('/api/auth/register/', { method: 'POST', body: JSON.stringify(values) })
+      const tokens = await apiRequest<Tokens>('/api/auth/token/', {
         method: 'POST',
         body: JSON.stringify(values),
       })
